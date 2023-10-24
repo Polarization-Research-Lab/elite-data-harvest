@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Setup
+## CD into the directory that this script is in
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/"
+
+## Get common environment variables
+source ../../.env
+
+## Redirect stdout and stderr
+exec &>> "log"
+
+# Execute
+# ## Add Timestamp
+echo "--- START: [$(date '+%Y-%m-%d %H:%M:%S')] $1 ---"
+
+$py3 harvest.py "$@"
+
+# Optionally, you can capture the exit code of the Python script
+exit_code=$?
+
+# You can use $exit_code as needed, e.g., to check if the script ran successfully
+if [ $exit_code -eq 0 ]; then
+    echo "executed successfully."
+else
+    echo "encountered an error with exit code $exit_code."
+fi
+
+echo "--- FIN: [$(date '+%Y-%m-%d %H:%M:%S')] $1 ---"
+echo "============"

@@ -1,0 +1,2 @@
+py3="path/to/python"
+py3 -m pip install -r ../.python/requirements.txt

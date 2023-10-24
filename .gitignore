@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+
+# macOS
+.DS_Store
+
+# Windows
+desktop.ini
+
+# This Repo
+.sublime/
+.tmp/
+log
+elite.db
+.maintenance/update\ legislators\ table/.tmp/*
